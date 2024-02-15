@@ -1,7 +1,10 @@
 import LogoBlueImage from 'assets/images/logo-blue.png';
 import ProductImage from 'assets/images/product.jpeg';
+import { EMAIL_REGEX } from 'constants';
 import {
   INITIAL_FORM_INITIAL_VALUES,
+  INITIAL_FORM_TOUCHED_VALUES,
+  INITIAL_FORM_UNTOUCHED_VALUES,
   PAGE_STATES,
   STATES,
 } from 'pages/Checkout/constants';
@@ -15,13 +18,16 @@ import TextInput from 'components/TextInput';
 
 const InitialView = ({ changePageState }) => {
   const [formValues, setFormValues] = useState(INITIAL_FORM_INITIAL_VALUES);
+  const [formTouched, setFormTouched] = useState(INITIAL_FORM_UNTOUCHED_VALUES);
 
   const updateFormValue = (event) => {
     const { id, value } = event.target;
     setFormValues({ ...formValues, [id]: value });
+    setFormTouched({ ...formTouched, [id]: true });
   };
 
   const handlePaymentButton = () => {
+    setFormTouched(INITIAL_FORM_TOUCHED_VALUES);
     if (checkIsFormaValuesValid(formValues)) {
       changePageState(PAGE_STATES.PAYMENT);
     }
@@ -109,6 +115,9 @@ const InitialView = ({ changePageState }) => {
                   className="form-control checkout"
                   placeholder="Email"
                   onChange={updateFormValue}
+                  isInvalid={
+                    !formValues.email.match(EMAIL_REGEX) && formTouched.email
+                  }
                 />
                 <div className="checkbox-row w-100 d-block">
                   <label className="control control-checkbox">
@@ -130,6 +139,7 @@ const InitialView = ({ changePageState }) => {
                         onChange={updateFormValue}
                         id="country"
                         className="form-select checkout"
+                        isInvalid={!formValues.country && formTouched.country}
                       >
                         <option hidden>Country</option>
                         <option
@@ -151,6 +161,9 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="First name (optional)"
                         onChange={updateFormValue}
+                        isInvalid={
+                          !formValues['first-name'] && formTouched['first-name']
+                        }
                       />
                     </div>
                   </div>
@@ -163,6 +176,9 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="Last name"
                         onChange={updateFormValue}
+                        isInvalid={
+                          !formValues['last-name'] && formTouched['last-name']
+                        }
                       />
                     </div>
                   </div>
@@ -175,6 +191,7 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="Address"
                         onChange={updateFormValue}
+                        isInvalid={!formValues.address && formTouched.address}
                       />
                     </div>
                   </div>
@@ -187,6 +204,9 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="Apartment, suite, etc. (optional)"
                         onChange={updateFormValue}
+                        isInvalid={
+                          !formValues.apartment && formTouched.apartment
+                        }
                       />
                     </div>
                   </div>
@@ -199,6 +219,7 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="City"
                         onChange={updateFormValue}
+                        isInvalid={!formValues.city && formTouched.city}
                       />
                     </div>
                   </div>
@@ -209,6 +230,7 @@ const InitialView = ({ changePageState }) => {
                         onChange={updateFormValue}
                         id="state"
                         className="form-select checkout"
+                        isInvalid={!formValues.state && formTouched.state}
                       >
                         <option hidden>State</option>
                         {STATES.map((state) => (
@@ -232,6 +254,7 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="Zip code"
                         onChange={updateFormValue}
+                        isInvalid={!formValues.zipCode && formTouched.zipCode}
                       />
                     </div>
                   </div>
@@ -244,6 +267,7 @@ const InitialView = ({ changePageState }) => {
                         className="form-control checkout"
                         placeholder="Phone"
                         onChange={updateFormValue}
+                        isInvalid={!formValues.phone && formTouched.phone}
                       />
                     </div>
                   </div>

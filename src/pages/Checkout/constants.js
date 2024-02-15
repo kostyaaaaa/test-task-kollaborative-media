@@ -16,6 +16,32 @@ export const INITIAL_FORM_INITIAL_VALUES = {
   phone: '',
 };
 
+export const INITIAL_FORM_UNTOUCHED_VALUES = {
+  email: false,
+  'first-name': false,
+  'last-name': false,
+  address: false,
+  apartment: false,
+  city: false,
+  zipCode: false,
+  state: false,
+  country: false,
+  phone: false,
+};
+
+export const INITIAL_FORM_TOUCHED_VALUES = {
+  email: true,
+  'first-name': true,
+  'last-name': true,
+  address: true,
+  apartment: true,
+  city: true,
+  zipCode: true,
+  state: true,
+  country: true,
+  phone: true,
+};
+
 export const PAYMENT_FORM_INITIAL_VALUES = {
   'card-number': '',
   name: '',

@@ -1,9 +1,14 @@
-import { func, node, string } from 'prop-types';
+import { bool, func, node, string } from 'prop-types';
 import React from 'react';
 
-const Select = ({ children, id, className, onChange, value }) => {
+const Select = ({ children, id, className, onChange, value, isInvalid }) => {
   return (
-    <select value={value} id={id} className={className} onChange={onChange}>
+    <select
+      value={value}
+      id={id}
+      className={`${className}${isInvalid ? ' outline outline-2 outline-red-600' : ''}`}
+      onChange={onChange}
+    >
       {children}
     </select>
   );
@@ -12,6 +17,7 @@ const Select = ({ children, id, className, onChange, value }) => {
 Select.defaultProps = {
   id: '',
   className: '',
+  isInvalid: false,
 };
 
 Select.propTypes = {
@@ -20,6 +26,7 @@ Select.propTypes = {
   className: string,
   onChange: func.isRequired,
   value: string.isRequired,
+  isInvalid: bool,
 };
 
 export default Select;
