@@ -128,9 +128,9 @@ const PaymentView = () => {
                     <div className="col-12">
                       <div className="form-group w-100 d-block">
                         <TextInput
-                          value={formValues['card-number']}
+                          value={formValues.cardNumber}
                           type="text"
-                          id="card-number"
+                          id="cardNumber"
                           placeholder="Card Number"
                           className="form-control checkout"
                           onChange={updateFormValue}
@@ -164,9 +164,9 @@ const PaymentView = () => {
                     <div className="col-md-6">
                       <div className="form-group w-100 d-block">
                         <TextInput
-                          value={formValues['Security-code']}
+                          value={formValues.securityCode}
                           type="text"
-                          id="Security-code"
+                          id="securityCode"
                           placeholder="Security code"
                           className="form-control checkout"
                           onChange={updateFormValue}
@@ -197,8 +197,8 @@ const PaymentView = () => {
                   <Radio
                     name="billing-address"
                     onChange={updateFormValue}
-                    id="address-change"
-                    value={formValues['address-change']}
+                    id="addressChange"
+                    value={formValues.addressChange}
                   />
                   <div className="control-indicator"></div>
                 </label>
@@ -228,9 +228,9 @@ const PaymentView = () => {
                     <div className="col-md-6">
                       <div className="form-group">
                         <TextInput
-                          value={formValues['first-name']}
+                          value={formValues.firstName}
                           type="text"
-                          id="first-name"
+                          id="firstName"
                           className="form-control checkout"
                           placeholder="First name (optional)"
                           onChange={updateFormValue}
@@ -240,9 +240,9 @@ const PaymentView = () => {
                     <div className="col-md-6">
                       <div className="form-group">
                         <TextInput
-                          value={formValues['last-name']}
+                          value={formValues.lastName}
                           type="text"
-                          id="last-name"
+                          id="lastName"
                           className="form-control checkout"
                           placeholder="Last name"
                           onChange={updateFormValue}

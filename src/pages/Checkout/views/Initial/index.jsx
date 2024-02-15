@@ -155,14 +155,14 @@ const InitialView = ({ changePageState }) => {
                   <div className="col-md-6">
                     <div className="form-group">
                       <TextInput
-                        value={formValues['first-name']}
+                        value={formValues.firstName}
                         type="text"
-                        id="first-name"
+                        id="firstName"
                         className="form-control checkout"
                         placeholder="First name (optional)"
                         onChange={updateFormValue}
                         isInvalid={
-                          !formValues['first-name'] && formTouched['first-name']
+                          !formValues.firstName && formTouched.firstName
                         }
                       />
                     </div>
@@ -170,15 +170,13 @@ const InitialView = ({ changePageState }) => {
                   <div className="col-md-6">
                     <div className="form-group">
                       <TextInput
-                        value={formValues['last-name']}
+                        value={formValues.lastName}
                         type="text"
-                        id="last-name"
+                        id="lastName"
                         className="form-control checkout"
                         placeholder="Last name"
                         onChange={updateFormValue}
-                        isInvalid={
-                          !formValues['last-name'] && formTouched['last-name']
-                        }
+                        isInvalid={!formValues.lastName && formTouched.lastName}
                       />
                     </div>
                   </div>

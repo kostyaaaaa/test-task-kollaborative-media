@@ -5,8 +5,8 @@ export const PAGE_STATES = {
 
 export const INITIAL_FORM_INITIAL_VALUES = {
   email: '',
-  'first-name': '',
-  'last-name': '',
+  firstName: '',
+  lastName: '',
   address: '',
   apartment: '',
   city: '',
@@ -31,14 +31,14 @@ export const INITIAL_FORM_TOUCHED_VALUES = Object.keys(
 }, {});
 
 export const PAYMENT_FORM_INITIAL_VALUES = {
-  'card-number': '',
+  cardNumber: '',
   name: '',
   expiration: '',
-  'Security-code': '',
-  'address-change': '',
+  securityCode: '',
+  addressChange: '',
   country: '',
-  'first-name': '',
-  'last-name': '',
+  firstName: '',
+  lastName: '',
   address: '',
   apartment: '',
   city: '',
